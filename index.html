@@ -1,159 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>TaskHive – Final Project</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>TaskHive – Multi-List Task Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TaskHive – a Java desktop app for managing multiple task lists with due dates, priorities, and categories.">
   <style>
+    :root {
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
-      background: #0f172a;
-      color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   sans-serif;
+      background: #ffffff; /* default white theme */
+      color: var(--text-main);
       line-height: 1.6;
     }
+
     header {
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      background: radial-gradient(circle at top, #22c55e, #0f172a);
+      border-bottom: 1px solid var(--border);
+      background: #ffffff;
     }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem;
+    }
+
     h1 {
+      margin: 0 0 0.25rem;
+      font-size: 2rem;
+    }
+
+    .subtitle {
       margin: 0;
-      font-size: 2.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
     }
-    h2 {
-      margin-top: 2rem;
-      font-size: 1.6rem;
-      border-bottom: 2px solid #22c55e;
-      display: inline-block;
-      padding-bottom: 0.2rem;
-    }
+
     main {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 3rem;
+      padding: 1.5rem 1.25rem 3rem;
     }
-    a {
-      color: #4ade80;
+
+    section {
+      margin-bottom: 2rem;
     }
-    .tagline {
-      margin-top: 0.6rem;
-      font-size: 1.05rem;
-      color: #a5b4fc;
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.25rem;
     }
-    .section {
-      margin-top: 1.5rem;
+
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.25rem;
     }
-    .card {
-      background: #020617;
-      border-radius: 0.75rem;
-      padding: 1rem 1.25rem;
-      border: 1px solid #1f2937;
-      margin-top: 0.8rem;
+
+    p {
+      margin-top: 0.35rem;
+      margin-bottom: 0.35rem;
     }
+
     ul {
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
+      padding-left: 1.3rem;
     }
-    .links a {
-      margin-right: 1.2rem;
+
+    li + li {
+      margin-top: 0.1rem;
     }
-    .screenshot {
-      max-width: 100%;
-      border-radius: 0.75rem;
-      border: 1px solid #1f2937;
+
+    .tagline {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      padding: 0.75rem 0.85rem;
+      border-radius: 0.5rem;
       margin-top: 0.75rem;
+      font-size: 0.95rem;
     }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
+
+    .pill {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      margin-right: 0.3rem;
+      margin-bottom: 0.25rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .code-inline {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+                   "Liberation Mono", "Courier New", monospace;
+      padding: 0.05rem 0.25rem;
+      border-radius: 0.25rem;
+      background: #f9fafb;
+      border: 1px solid var(--border);
       font-size: 0.85rem;
-      color: #9ca3af;
+    }
+
+    .demo-box {
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      padding: 1rem;
+      background: #ffffff;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>TaskHive</h1>
-    <div class="tagline">Java desktop task manager for students and professionals.</div>
+    <div class="header-inner">
+      <h1>TaskHive App Showcase</h1>
+      <p class="subtitle">
+        COP 4331 – Object Oriented Software Engineering ·
+        Florida Atlantic University · Fall 2025<br>
+        Author: Adam Wallace · Project: TaskHive – Multi-List Task Manager
+      </p>
+      <div class="tagline">
+        TaskHive is a Java desktop application that helps you manage multiple task
+        lists with due dates, priorities, and categories. It was built as a semester
+        project for COP 4331 – Object Oriented Software Engineering at
+        Florida Atlantic University.
+      </div>
+    </div>
   </header>
 
   <main>
-    <section class="section">
+    <section>
       <h2>Overview</h2>
-      <div class="card">
+      <p>
+        TaskHive was created for students and busy users who need several
+        separate lists instead of one giant to-do list where items get lost.
+        You can maintain different lists for:
+      </p>
+      <ul>
+        <li><strong>Personal goals</strong> – self-care, workouts, habits</li>
+        <li><strong>Academic work</strong> – homework, projects, exams</li>
+        <li><strong>Professional tasks</strong> – meetings, deliverables, deadlines</li>
+      </ul>
+      <p>
+        Each list contains tasks with their own due dates and priorities, and
+        tasks are visually organized by urgency.
+      </p>
+
+      <p>
+        <span class="pill">Java 17</span>
+        <span class="pill">Swing GUI</span>
+        <span class="pill">MVC Architecture</span>
+        <span class="pill">Local File Persistence</span>
+      </p>
+    </section>
+
+    <section id="features">
+      <h2>Core Features</h2>
+
+      <h3>Lists</h3>
+      <ul>
+        <li>Create lists with optional description, category, due date, and priority.</li>
+        <li>Switch between different lists from a central dashboard.</li>
+        <li>Delete entire lists (with confirmation prompts).</li>
+      </ul>
+
+      <h3>Tasks</h3>
+      <ul>
+        <li>Add tasks to a list with name, description, optional due date, and priority.</li>
+        <li>Edit existing tasks or delete them from the list.</li>
+        <li>Mark tasks complete; lists become complete when all tasks are done.</li>
+      </ul>
+
+      <h3>Due Dates, Priority &amp; Visual Feedback</h3>
+      <ul>
+        <li>Per-task due dates, plus an optional due date for the entire list (e.g., project deadline).</li>
+        <li>Priority and color coding for urgency (low / normal / high).</li>
+        <li>Visual indicators for overdue, late, and completed tasks.</li>
+      </ul>
+
+      <h3>Search, Filter &amp; Sort</h3>
+      <ul>
+        <li>Search lists and tasks by keywords.</li>
+        <li>Filter by category, created date, due date, or priority.</li>
+        <li>Sort by due date and urgency to see what’s most important first.</li>
+      </ul>
+
+      <h3>Local Persistence</h3>
+      <ul>
+        <li>All lists and tasks are stored locally on disk.</li>
+        <li>Data is re-loaded automatically when you reopen the application.</li>
+      </ul>
+    </section>
+
+    <section id="demo">
+      <h2>App Showcase</h2>
+
+      <div class="demo-box">
+        <h3>Video Demo</h3>
         <p>
-          TaskHive is a Java Swing desktop application that lets users create and manage
-          multiple task lists. Lists can be grouped by category (personal, academic,
-          professional), and each task can have due dates, priorities, and completion
-          status to help users stay organized.
+          A short video walkthrough of TaskHive is embedded here.
+          It demonstrates creating lists, adding tasks, marking tasks complete,
+          filtering by category, and how the UI responds to overdue items.
         </p>
-      </div>
-    </section>
 
-    <section class="section">
-      <h2>Key Features</h2>
-      <div class="card">
-        <ul>
-          <li>Create, edit, and delete task lists and individual tasks.</li>
-          <li>Assign due dates and priorities, with visual cues for overdue tasks.</li>
-          <li>Filter and search lists by category, date, and urgency.</li>
-          <li>Local persistence so tasks are saved between sessions.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Demo</h2>
-      <div class="card">
-        <p>Video walkthrough of TaskHive:</p>
-        <!-- Replace the src with your actual YouTube video ID -->
-        <iframe width="560" height="315"
-          src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE"
+        <!--
+          When your YouTube demo is ready, replace VIDEO_ID below
+          and remove this comment.
+        -->
+        <!--
+        <iframe
+          width="100%"
+          height="400"
+          src="https://www.youtube.com/embed/VIDEO_ID"
           title="TaskHive Demo"
           frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        -->
+
+        <p><em>Demo video coming soon.</em></p>
       </div>
+
+      <h3>Dashboard – All Task Lists</h3>
+      <p>
+        The dashboard shows all saved task lists with their title, description,
+        created/due dates, priority, and category. From here the user can search,
+        filter, and open an individual list.
+      </p>
+
+      <h3>Inside a List – Tasks View</h3>
+      <p>
+        This view displays all tasks inside a specific list. Each task shows its
+        description, created and due dates, completion status, and buttons to
+        mark complete or delete.
+      </p>
+
+      <h3>Creating a New List</h3>
+      <p>
+        A dialog lets the user enter the list name, description, optional due
+        date, category, and priority. After confirmation, the new list appears
+        on the dashboard.
+      </p>
+
+      <h3>Adding a New Task</h3>
+      <p>
+        Another dialog allows adding a new task to the current list, including
+        title, description, optional due date, and priority level.
+      </p>
     </section>
 
-    <section class="section">
-      <h2>Screenshots</h2>
-      <div class="card">
-        <p>Dashboard view with multiple lists:</p>
-        <!-- When you add screenshots to the repo, update these image paths -->
-        <img class="screenshot" src="images/dashboard.png" alt="TaskHive dashboard screenshot" />
-        <p>Task list view with priorities and due dates:</p>
-        <img class="screenshot" src="images/tasklist.png" alt="TaskHive task list screenshot" />
-      </div>
+    <section id="architecture">
+      <h2>Architecture &amp; Design Patterns</h2>
+      <p>
+        TaskHive was designed with a Model–View–Controller (MVC) structure and
+        several GoF patterns to keep the code modular, testable, and
+        maintainable.
+      </p>
+
+      <h3>MVC Layers</h3>
+      <h4>Model</h4>
+      <ul>
+        <li><strong>Task</strong> – represents a single task.</li>
+        <li><strong>TaskListModel</strong> – represents a list containing many tasks.</li>
+        <li><strong>TaskRepository</strong> – stores and loads all task lists from disk.</li>
+      </ul>
+
+      <h4>View</h4>
+      <ul>
+        <li><strong>DashboardView</strong> – main window with all task lists.</li>
+        <li><strong>TaskListView</strong> – window showing tasks for a single list.</li>
+        <li><strong>TaskRowPanel</strong> &amp; <strong>TaskListRowPanel</strong> – reusable Swing components for rows.</li>
+      </ul>
+
+      <h4>Controller</h4>
+      <ul>
+        <li><strong>DashboardController</strong></li>
+        <li><strong>TaskListController</strong></li>
+      </ul>
+
+      <h3>Main Patterns Used</h3>
+
+      <h4>Repository Pattern</h4>
+      <p>
+        <strong>TaskRepository</strong> handles loading and saving all
+        <strong>TaskListModel</strong> objects and hides file I/O from the rest of
+        the application. Controllers interact with clean repository methods
+        instead of dealing with files directly.
+      </p>
+
+      <h4>Composite Pattern</h4>
+      <p>
+        <strong>TaskListModel</strong> behaves as a composite that owns many
+        <strong>Task</strong> entities. The UI can treat a whole list as one
+        object (add, delete, mark complete) while internally it manages a
+        collection of child tasks.
+      </p>
+
+      <h4>Strategy Pattern (Filtering &amp; Search)</h4>
+      <p>
+        Different filter strategies (by category, due date, priority, or none)
+        can be swapped at runtime via a context class. This allows the
+        dashboard to change its filtering behavior without modifying controller
+        code.
+      </p>
+
+      <h4>Factory / Dialog Factory</h4>
+      <p>
+        <strong>NewListDialog</strong> and <strong>NewTaskDialog</strong> act as
+        factories that create <strong>TaskListModel</strong> and <strong>Task</strong>
+        objects from user input. In the full design, a dedicated
+        <strong>DialogFactory</strong> can instantiate dialogs so controllers
+        remain focused on coordination logic instead of UI construction.
+      </p>
     </section>
 
-    <section class="section">
-      <h2>Technical Details</h2>
-      <div class="card">
-        <ul>
-          <li>Architecture: Model–View–Controller (MVC)</li>
-          <li>Design patterns: Composite, Strategy, Repository, Observer</li>
-          <li>Tech stack: Java 17, Swing GUI, file-based persistence</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Links</h2>
-      <div class="card links">
-        <a href="https://github.com/YOUR_USERNAME/YOUR_TASKHIVE_REPO" target="_blank">
-          Source code (GitHub)
-        </a>
-        <a href="https://github.com/YOUR_USERNAME/YOUR_DESIGN_SPEC_REPO" target="_blank">
-          Design specification (GitHub)
-        </a>
-      </div>
+    <section id="run-locally">
+      <h2>How to Run TaskHive Locally</h2>
+      <ol>
+        <li>Clone the TaskHive source repository from GitHub.</li>
+        <li>Open the project in an IDE such as IntelliJ IDEA, Eclipse, or NetBeans.</li>
+        <li>Ensure you are using <strong>Java 17+</strong>.</li>
+        <li>Build / compile the project.</li>
+        <li>Run the main class to launch the TaskHive desktop application.</li>
+      </ol>
+      <p class="footer">
+        TaskHive was built as a team project for COP 4331 at FAU.  
+        This page describes the functionality and design of my implementation and contributions.
+      </p>
     </section>
   </main>
-
-  <footer>
-    TaskHive – Final Project • Adam Wallace (Z23657112)
-  </footer>
 </body>
 </html>
